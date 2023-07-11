@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: acdc-static-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acdc-static-image
+  template:
+    metadata:
+      labels:
+        app: acdc-static-image
+    spec:
+      containers:
+        - name: acdc-static-image
+          image: mailinenguyen/acdc-static-image:latest
+          imagePullPolicy: Always
+      restartPolicy: Always
