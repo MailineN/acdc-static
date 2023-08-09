@@ -16,4 +16,6 @@ spec:
         - name: acdc-static-image
           image: mailinenguyen/acdc-static-image:latest
           imagePullPolicy: Always
+          ports:
+            - containerPort: 80
       restartPolicy: Always

@@ -3,11 +3,17 @@ kind: Service
 metadata:
   name: acdc-static-image
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: acdc-static-image
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-      nodePort: 30080
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  clusterIP: 10.0.171.239
+  loadBalancerIP: 78.11.24.19
+status:
+  loadBalancer:
+    ingress:
+    - ip: 146.148.47.155
